@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Avenger" representedClassName="Avenger" syncable="YES" codeGenerationType="class">
+        <attribute name="avengerId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="descriptio" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="power" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="battlesLosed" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Battle" inverseName="loser" inverseEntity="Battle"/>
+        <relationship name="battlesWinned" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Battle" inverseName="winner" inverseEntity="Battle"/>
+    </entity>
+    <entity name="Battle" representedClassName="Battle" syncable="YES" codeGenerationType="class">
+        <attribute name="battleId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="loser" maxCount="1" deletionRule="Nullify" destinationEntity="Avenger" inverseName="battlesLosed" inverseEntity="Avenger"/>
+        <relationship name="winner" maxCount="1" deletionRule="Nullify" destinationEntity="Avenger" inverseName="battlesWinned" inverseEntity="Avenger"/>
+    </entity>
+    <elements>
+        <element name="Avenger" positionX="-63" positionY="9" width="128" height="163"/>
+        <element name="Battle" positionX="-54" positionY="54" width="128" height="88"/>
+    </elements>
+</model>
